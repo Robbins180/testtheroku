@@ -8,7 +8,15 @@ const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
 
-const PORT = process.env.PORT || 3003;
+const fruitsController = require('./controllers/fruits.js')
+app.use('/fruits', fruitsController)
+
+// const userController = require('./controllers/users_controller.js')
+// app.use('/users', userController)
+//
+// const sessionsController = require('./controllers/sessions_controller.js')
+
+const PORT = process.env.PORT || 3000;
 
 //___________________
 //Database
@@ -16,7 +24,8 @@ const PORT = process.env.PORT || 3003;
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
+mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false,
+useCreateIndex: true }
 );
 
 // Error / success
@@ -35,8 +44,8 @@ app.use(methodOverride('_method'));
 
 
 
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
+app.get('/', (req, res) => {
+  res.redirect('/fruits');
 });
 
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
