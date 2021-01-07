@@ -69,8 +69,8 @@ app.use('/shop', shopController)
 
 
 
-// app.get('/', (req, res) => {
-//   res.redirect('/shop');
-// });
+app.get('/', (req, res) => {
+  res.redirect('/shop');
+});
 
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
