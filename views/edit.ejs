@@ -2,24 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Cusomize</title>
   </head>
   <body>
-    <h1>Edit Fruit Page</h1>
-    <form action='/fruits/<%=fruit.id%>?_method=PUT' method='POST'>
-
-          Name: <input type="text" name="name" value="<%=fruit.name%>"/><br/>
-          Color: <input type="text" name="color" value="<%=fruit.color%>"/><br/>
-          Is Ready To Eat:
-          <input type="checkbox" name="readyToEat"
-              <% if(fruit.readyToEat === true){ %>
-                  checked
-              <% } %>
-          />
-          <br/>
-          <input type="submit" name="" value="Submit Changes"/>
-      </form>
-    <%=JSON.stringify(fruit)%>
-
+    <div class="new">
+      <h1>Edit Deer</h1>
+      <div id="new-deer">
+        <form action="/deer/<%=item.id%>?_method=PUT" method="POST" id="edit-form">
+          Name: <input type="text" name="name" value="<%=item.name%>"><br/>
+          Description: <input type="text" name="description" value="<%=item.descr%>"><br/>
+          <!-- Picture: <input type="link" name="img" value="<%=item.img%>"><br/> -->
+          Price: <input type="number" name="price" value="<%=item.price%>"><br/>
+          Quantity: <input type="number" name="qty" value="<%=item.qty%>"><br/>
+          <input type="submit" id="new-submit" value="submit your customization"/>
+        </form>
+        </div>
+        <a href="/deer/<%=item.id%>"><button type="button" name="back" id="back-btn">BACK</button></a>
+    </div>
   </body>
 </html>

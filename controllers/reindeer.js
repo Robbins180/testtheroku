@@ -46,16 +46,16 @@ const Deer = require('../models/deer.js')
 
 // ============== Index ============ //
 
-router.get('/', (req, res) => {
-    Deer.find({}, (error, allFruits) => {
-        res.render(
-            'index.ejs',
-            {
-                fruits: allFruits
-            }
-        )
-    })
-})
+// router.get('/', (req, res) => {
+//     Deer.find({}, (error, allFruits) => {
+//         res.render(
+//             'index.ejs',
+//             {
+//                 fruits: allFruits
+//             }
+//         )
+//     })
+// })
 
 // ============== New =============== //
 
@@ -76,16 +76,16 @@ router.get('/new', (req, res) => {
 //
 // ============= Show ============= //
 
-router.get('/:id', (req, res) => {
-    Deer.findById(req.params.id, (error, foundFruit) => {
-        res.render(
-            'show.ejs',
-            {
-                fruit:foundFruit
-            }
-        )
-    })
-});
+// router.get('/:id', (req, res) => {
+//     Deer.findById(req.params.id, (error, foundFruit) => {
+//         res.render(
+//             'show.ejs',
+//             {
+//                 fruit:foundFruit
+//             }
+//         )
+//     })
+// });
 //
 // router.delete('/fruits/:id', (req,res) => {
 //   Fruit.findByIdAndRemove(req.params.id, (error, data) => {

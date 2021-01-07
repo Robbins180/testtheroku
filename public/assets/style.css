@@ -37,6 +37,7 @@
 header{
   background-color: var(--primary-color);
   font-family: var(--roboto);
+  border: 2px solid black;
 }
 
 header .site-title{
@@ -142,4 +143,16 @@ header .site-title{
   border: none;
   background-color: light-grey;
   text-indent: -99999px;
+}
+
+/* Footer */
+
+.social{
+  list-style-type: none;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.footer-bottom{
+    text-align: center;
 }

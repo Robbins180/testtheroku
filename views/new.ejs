@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <h1>New Fruit</h1>
-        <form action="/fruits" method="POST">
-            Name: <input type="text" name="name" /><br/>
-            Color: <input type="text" name="color" /><br/>
-            Is Ready to Eat: <input type="checkbox" name="readyToEat" /><br/>
-            <input type="submit" value="Create Fruit" />
+  <head>
+    <meta charset="utf-8">
+    <title>New Deer</title>
+  </head>
+  <body>
+    <div class="new">
+      <h1>Add Reindeer</h1>
+      <div id="new-deer">
+        <form action="/deer" method="POST" id="form">
+          Name: <input type="text" name="name"/><br/>
+          Description: <input type="text" name="descr"/><br/>
+          Picture: <input type="link" name="img"/><br/>
+          Price: <input type="number" name="price"/><br/>
+          Quantity: <input type="number" name="qty"/><br/>
+          <input type="submit" name="new-submit" value="add to stock"/>
         </form>
-    </body>
+        </div>
+        <a href="/deer"><button type="button" name="back" id="back-btn">BACK</button></a>
+    </div>
+  </body>
 </html>

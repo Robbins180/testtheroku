@@ -3,6 +3,21 @@ const Deer = require('../models/deer.js')
 const shop = express.Router()
 
 //====Routes====
+
+
+// BUY
+shop.put("/buy/:id", (req, res) => {
+  Deer.findById(req.params.id, (err, foundDeer) => {
+    Deer.updateOne(foundDeer, {$inc: {qty: -1}}, {new:true}, (err, item)=> {})
+  });
+
+Deer.find({}, (error, foundDeer) => {
+  res.render('index.ejs')
+});
+  res.redirect('/shop')
+});
+
+
 //index
 shop.get('/',(req, res) => {
   Deer.find({}, (err, foundDeer) => {
@@ -14,25 +29,7 @@ shop.get('/',(req, res) => {
 
 //new
 shop.get('/new', (req, res) => {
-  res.render('shop/new.ejs')
-})
-
-//show
-shop.get('/:id', (req, res) => {
-  Deer.findById(req.params.id, (err, foundDeer) => {
-    res.render('shop/show.ejs', {
-      deer: foundDeer
-    })
-  })
-})
-
-//edit
-shop.get('/:id/edit', (req, res) => {
-  Deer.findById(req.params.id, (err, foundDeer) => {
-    res.render('shop/edit.ejs',{
-      deer: foundDeer
-    })
-  })
+  res.render('new.ejs')
 })
 
 // create
@@ -41,6 +38,26 @@ shop.post('/', (req, res) => {
     res.redirect(`/shop`)
   })
 })
+
+//show
+shop.get('/:id', (req, res) => {
+  Deer.findById(req.params.id, (err, foundDeer) => {
+    res.render('show.ejs', {
+      deer: foundDeer
+    })
+  })
+})
+
+//edit
+shop.get('/:id/edit', (req, res) => {
+  Deer.findById(req.params.id, (err, foundDeer) => {
+    res.render('edit.ejs',{
+      deer: foundDeer
+    })
+  })
+})
+
+
 
 // update
 shop.put('/:id', (req, res) => {
@@ -52,17 +69,17 @@ shop.put('/:id', (req, res) => {
   )
 })
 
-//buy
-shop.put('/:id/buy', (req, res) => {
-  Deer.findByIdAndUpdate(
-    req.params.id,
-    { $inc: { qty: -1 } },
-    { new: true },
-    (err, updatedComic) => {
-      res.redirect(`/shop/${req.params.id}`)
-    }
-  )
-})
+// //buy
+// shop.put('/:id/buy', (req, res) => {
+//   Deer.findByIdAndUpdate(
+//     req.params.id,
+//     { $inc: { qty: -1 } },
+//     { new: true },
+//     (err, updatedComic) => {
+//       res.redirect(`/shop/${req.params.id}`)
+//     }
+//   )
+// })
 
 // delete
 shop.delete('/:id', (req, res) => {
