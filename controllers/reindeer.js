@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Fruit = require('../models/fruits.js')
+const Deer = require('../models/deer.js')
 
 // router.get('/fruits/:id/edit', (req,res) => {
 //   Fruit.findByID(req.params.id, (error, foundFruit) => {
@@ -44,8 +44,10 @@ const Fruit = require('../models/fruits.js')
 //     )
 // });
 
+// ============== Index ============ //
+
 router.get('/', (req, res) => {
-    Fruit.find({}, (error, allFruits) => {
+    Deer.find({}, (error, allFruits) => {
         res.render(
             'index.ejs',
             {
@@ -55,9 +57,11 @@ router.get('/', (req, res) => {
     })
 })
 
-// router.get('/fruits/new', (req, res) => {
-//     res.render('new.ejs');
-// });
+// ============== New =============== //
+
+router.get('/new', (req, res) => {
+    res.render('new.ejs');
+});
 
 // router.post('/fruits', (req, res) => {
 //     if(req.body.readyToEat === 'on'){
@@ -70,16 +74,18 @@ router.get('/', (req, res) => {
 //     });
 // });
 //
-// router.get('/fruits/:id', (req, res) => {
-//     Fruit.findById(req.params.id, (error, foundFruit) => {
-//         res.render(
-//             'show.ejs',
-//             {
-//                 fruit:foundFruit
-//             }
-//         )
-//     })
-// });
+// ============= Show ============= //
+
+router.get('/:id', (req, res) => {
+    Deer.findById(req.params.id, (error, foundFruit) => {
+        res.render(
+            'show.ejs',
+            {
+                fruit:foundFruit
+            }
+        )
+    })
+});
 //
 // router.delete('/fruits/:id', (req,res) => {
 //   Fruit.findByIdAndRemove(req.params.id, (error, data) => {

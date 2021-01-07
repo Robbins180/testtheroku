@@ -1,0 +1,145 @@
+/* imported font from google fonts */
+
+ @import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato&family=Roboto&family=Sofia&display=swap');
+
+:root {
+  --primary-color:#45ccb7;
+  --border: Black;
+  --text-color:#ff686b;
+  --gray:#2b3032a1;
+  --roboto: 'Roboto', sans-serif;
+  --gugi:  'Gugi';
+  --Anton: 'Anton;'
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.bg-primary-color{
+  background-color: var(--primary-color) !important;
+}
+
+.text-color{
+  color: var(--text-color);
+}
+
+.font-roboto{
+  font-family: var(--roboto);
+}
+
+.light-blue{
+  color: lightblue;
+}
+
+/* header */
+
+header{
+  background-color: var(--primary-color);
+  font-family: var(--roboto);
+}
+
+header .site-title{
+  font-family: var(--gugi);
+}
+
+.container .dropdown-toggle,
+.container .dropdown-toggle{
+  font-size: 0.7em;
+}
+
+.header-links a{
+  font-size: 0.9em;
+  text-decoration: none;
+  color: white;
+}
+
+
+/* === Nav Menu === */
+
+.nav-bar{
+  padding: 0.8em 0em;
+}
+
+.navbar-nav .nav-link{
+  size: 0.9;
+  color: var(--gray) !important;
+}
+
+.navbar-nav .nav-item .nav-link{
+  padding: 0 1.3em;
+}
+
+.navbar-nav .basket-icon{
+  margin-right: 6.5em;
+}
+
+/* MAIN */
+
+.slider-one{
+  background-size: cover;
+  width: 938px;
+  height: 703px;
+}
+
+.background3{
+  height: 703px;
+}
+
+/* Slider one */
+
+.site-slider{
+  position: relitive;
+}
+
+.position-top{
+  position: absolute;
+  top: 50%;
+}
+
+.site-slider .slider-btn .prev,
+.site-slider .slider-btn .next{
+  background-color: var(--primary-color);
+  padding: 1rem 1.5rem;
+  border-radius: 10rem;
+  color: white;
+  margin: 0 1rem;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.site-slider:hover .slider-btn .prev,
+.site-slider:hover .slider-btn .next {
+  opacity: .9;
+}
+
+.right-0{
+  right: 0;
+}
+
+/* Dots */
+
+.slick-dots{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem 0;
+  list-style-type: none;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+}
+
+.slick-dots li{
+  margin: 0 0.6rem;
+}
+
+.slick-dots button{
+  display: block;
+  width: .5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: none;
+  background-color: light-grey;
+  text-indent: -99999px;
+}

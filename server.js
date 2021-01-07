@@ -8,13 +8,33 @@ const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
 
-const fruitsController = require('./controllers/fruits.js')
-app.use('/fruits', fruitsController)
 
-// const userController = require('./controllers/users_controller.js')
-// app.use('/users', userController)
-//
-// const sessionsController = require('./controllers/sessions_controller.js')
+//___________________
+//Controllers
+//___________________
+
+const deerController = require('./controllers/reindeer.js')
+app.use('/deer', deerController)
+
+const shopController = require('./controllers/shop.js')
+app.use('/shop', shopController)
+
+const usersController = require('./controllers/users.js')
+app.use('/users', usersController)
+
+const sessionsController = require('./controllers/sessions.js')
+app.use('/sessions', sessionsController)
+
+//___________________
+//Seed
+//___________________
+
+// app.get('/seed', (req, res) => {
+//     Deer.create(shopSeed, (err, createdShop) => {
+//         console.log(createdShop,'\n\n shop created!')
+//         res.redirect('/shop')
+//     })
+// })
 
 const PORT = process.env.PORT || 3000;
 
@@ -37,10 +57,11 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //Middleware
 //___________________
 
+app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(methodOverride('_method'));
+
 
 
 
