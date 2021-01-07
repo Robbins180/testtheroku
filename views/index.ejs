@@ -79,18 +79,21 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a href="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                <a  href="#">HOME <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a href="nav-link" href="#">FEATURES</a>
+                <a href="#">FEATURES</a>
               </li>
               <li class="nav-item">
-                <a href="nav-link" href="#">PRICING</a>
+                <a href="/shop/deer/seed">SEED</a>
               </li>
               <li class="nav-item">
-                <a href="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">ABOUT</a>
+                <a href="/shop/<%=deer.id%>">PRICING</a>
               </li>
-              </ul>
+              <li class="nav-item">
+                <a  href="#" tabindex="-1" aria-disabled="true">ABOUT</a>
+              </li>
+            </ul>
             </div>
 
             <div class="navbar-nav">
@@ -124,6 +127,18 @@
               <div>
                   <img src="./imgs/bg3.jpg" height="703.5" class="img-fluid" alt="background3">
               </div>
+              <div>
+                  <img src="./imgs/Cupid.jpg" height="703.5" class="img-fluid" alt="Cupid">
+              </div>
+              <div>
+                  <img src="./imgs/Dancer.jpg" height="703.5" class="img-fluid" alt="Dancer">
+              </div>
+              <div>
+                  <img src="./imgs/Dasher.jpg" height="703.5" class="img-fluid" alt="Dasher">
+              </div>
+              <div>
+                  <img src="./imgs/Vixen.jpg" height="703.5" class="img-fluid" alt="Vixen">
+              </div>
             </div>
 
             <div class="slider-btn">
@@ -154,6 +169,23 @@
 
       </main>
 
+      <%for(let i = 0; i < deer.length; i++) { %>
+        <div class="container">
+          <div class="imgs">
+            <a href="/shop/<%=deer[i]._id%>">
+              <img src="<%= deer[i].img %>" alt="img">
+
+
+            </a>
+
+          </div>
+          <%= deer[i].name %>
+          <!-- <%= deer[i].description %>
+          <%= deer[i].price %>
+          <%= deer[i].Quantity %> -->
+        </div>
+
+    <%  } %>
 
       <!-- ===== FOOTER ====== -->
       <footer>

@@ -8,16 +8,22 @@
     <div class="new">
       <h1>Edit Deer</h1>
       <div id="new-deer">
-        <form action="/deer/<%=item.id%>?_method=PUT" method="POST" id="edit-form">
-          Name: <input type="text" name="name" value="<%=item.name%>"><br/>
-          Description: <input type="text" name="description" value="<%=item.descr%>"><br/>
-          <!-- Picture: <input type="link" name="img" value="<%=item.img%>"><br/> -->
-          Price: <input type="number" name="price" value="<%=item.price%>"><br/>
-          Quantity: <input type="number" name="qty" value="<%=item.qty%>"><br/>
-          <input type="submit" id="new-submit" value="submit your customization"/>
+
+        <form action="/shop/<%=deer._id%>?_method=PUT" method="POST">
+          Name: <input type="text" name="name" value="<%=deer.name%>"><br/>
+
+          Description: <input type="text" name="description" value="<%=deer.description%>"><br/>
+
+          Price: <input type="number" name="price" value="<%=deer.price%>"><br/>
+
+          Quantity: <input type="number" name="qty" value="<%=deer.qty%>"><br/>
+
+          <input type="submit" value="submit your customization"/>
         </form>
+
         </div>
-        <a href="/deer/<%=item.id%>"><button type="button" name="back" id="back-btn">BACK</button></a>
+
+        <a href="/shop/<%=deer.id%>"><button type="button" name="back" id="back-btn">BACK</button></a>
     </div>
   </body>
 </html>

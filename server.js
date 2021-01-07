@@ -14,17 +14,17 @@ require('dotenv').config()
 //Controllers
 //___________________
 
-const deerController = require('./controllers/reindeer.js')
-app.use('/deer', deerController)
+// const deerController = require('./controllers/reindeer.js')
+// app.use('/deer', deerController)
 
 const shopController = require('./controllers/shop.js')
 app.use('/shop', shopController)
 
-const usersController = require('./controllers/users.js')
-app.use('/users', usersController)
-
-const sessionsController = require('./controllers/sessions.js')
-app.use('/sessions', sessionsController)
+// const usersController = require('./controllers/users.js')
+// app.use('/users', usersController)
+//
+// const sessionsController = require('./controllers/sessions.js')
+// app.use('/sessions', sessionsController)
 
 //___________________
 //Seed

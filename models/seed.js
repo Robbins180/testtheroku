@@ -1,4 +1,6 @@
-module.exports = [
+
+const deerSeed = [
+
   {
     name: 'Blitzen',
     description: 'Blitzen has light brown and cream fur, brown eyes (which he passed down to Rudolph) and has two lightning bolt-shaped markings on his muzzle. Like all Flyers he wears a Medal of Valor.',
