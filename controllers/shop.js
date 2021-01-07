@@ -5,17 +5,6 @@ const shop = express.Router()
 //====Routes==== //
 
 
-// //==== BUY ==== //
-// shop.put("/buy/:id", (req, res) => {
-//   Deer.findById(req.params.id, (err, foundDeer) => {
-//     Deer.updateOne(foundDeer, {$inc: {qty: -1}}, {new:true}, (err, item)=> {})
-//   });
-//
-// Deer.find({}, (error, foundDeer) => {
-//   res.render('index.ejs')
-// });
-//   res.redirect('/shop')
-// });
 
 
 //==== INDEX ==== //
@@ -32,57 +21,7 @@ shop.get('/new', (req, res) => {
   res.render('new.ejs')
 })
 
-
-
-//==== SHOW ==== //
-shop.get('/:id', (req, res) => {
-  Deer.findById(req.params.id, (err, foundDeer) => {
-    res.render('show.ejs', {
-      deer: foundDeer
-    })
-  })
-})
-
-//==== EDIT ==== //
-shop.get('/:id/edit', (req, res) => {
-  Deer.findById(req.params.id, (err, foundDeer) => {
-    res.render('edit.ejs',{
-      deer: foundDeer
-    })
-  })
-})
-// Create a button
-
-
-
-//==== UPDATES ==== //
-shop.put('/:id', (req, res) => {
-  Deer.findByIdAndUpdate(
-    req.params.id,
-    req.body, {new: true}, (err, updatedDeer) => {
-      res.redirect('/shop')
-    }
-  )
-})
-
-//==== DELETE ==== //
-
-
-shop.delete('/:id', (req, res) => {
-  Deer.findByIdAndRemove(req.params.id, (err, deletedDeer) => {
-    res.redirect('/shop')
-  })
-})
-
-//==== Create ==== //
-shop.post('/', (req, res) => {
-  Deer.create(req.body, (err, createdDeer) => {
-    res.redirect(`/shop`)
-  })
-})
-
-
-
+//=== Seed === //
 
 shop.get('/deer/seed', (req,res) => {
   Deer.create([
@@ -158,6 +97,77 @@ shop.get('/deer/seed', (req,res) => {
       qty:1,
     },
   ],(error, deer) => {
+    res.redirect('/shop')
+  })
+})
+
+//==== SHOW ==== //
+shop.get('/:id', (req, res) => {
+  Deer.findById(req.params.id, (err, foundDeer) => {
+    res.render('show.ejs', {
+      deer: foundDeer
+    })
+  })
+})
+
+//==== EDIT ==== //
+shop.get('/:id/edit', (req, res) => {
+  Deer.findById(req.params.id, (err, foundDeer) => {
+    res.render('edit.ejs',{
+      deer: foundDeer
+    })
+  })
+})
+// Create a button
+
+
+
+// //==== UPDATES ==== //
+// shop.put('/:id', (req, res) => {
+//   Deer.findByIdAndUpdate(
+//     req.params.id,
+//     req.body, {new: true}, (err, updatedDeer) => {
+//       res.redirect('/shop')
+//     }
+//   )
+// })
+
+//==== DELETE ==== //
+
+// shop.delete('/:id', (req, res) => {
+//   Deer.findByIdAndRemove(req.params.id, (error, deletedstudent) => {
+//     res.redirect('/shop')
+//   })
+// })
+
+
+
+//==== Create ==== //
+shop.post('/', (req, res) => {
+  Deer.create(req.body, (err, createdDeer) => {
+    res.redirect(`/shop`)
+  })
+})
+
+
+
+
+
+
+//==== UPDATES ==== //
+shop.put('/:id', (req, res) => {
+  Deer.findByIdAndUpdate(
+    req.params.id,
+    req.body, {new: true}, (err, updatedDeer) => {
+      res.redirect('/shop')
+    }
+  )
+})
+ // === Delete === //
+shop.delete('/:id/', (req, res) => {
+  console.log(req.params);
+  Deer.findByIdAndRemove(req.params.id, (err, data) => {
+
     res.redirect('/shop')
   })
 })

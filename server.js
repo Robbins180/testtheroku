@@ -17,8 +17,7 @@ require('dotenv').config()
 // const deerController = require('./controllers/reindeer.js')
 // app.use('/deer', deerController)
 
-const shopController = require('./controllers/shop.js')
-app.use('/shop', shopController)
+
 
 // const usersController = require('./controllers/users.js')
 // app.use('/users', usersController)
@@ -48,12 +47,6 @@ const MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false,
 useCreateIndex: true }
 );
-
-// Error / success
-db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
-db.on('disconnected', () => console.log('mongo disconnected'));
-
 //___________________
 //Middleware
 //___________________
@@ -63,11 +56,21 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// Error / success
+db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('disconnected', () => console.log('mongo disconnected'));
+
+
+const shopController = require('./controllers/shop.js')
+app.use('/shop', shopController)
 
 
 
-app.get('/', (req, res) => {
-  res.redirect('/shop');
-});
+
+
+// app.get('/', (req, res) => {
+//   res.redirect('/shop');
+// });
 
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
