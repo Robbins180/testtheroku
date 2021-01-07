@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router()
-const Deer = require('../models/deer.js')
+// const express = require('express')
+// const router = express.Router()
+// const Deer = require('../models/deer.js')
 
 // router.get('/fruits/:id/edit', (req,res) => {
 //   Fruit.findByID(req.params.id, (error, foundFruit) => {
@@ -59,9 +59,9 @@ const Deer = require('../models/deer.js')
 
 // ============== New =============== //
 
-router.get('/new', (req, res) => {
-    res.render('new.ejs');
-});
+// router.get('/new', (req, res) => {
+//     res.render('new.ejs');
+// });
 
 // router.post('/fruits', (req, res) => {
 //     if(req.body.readyToEat === 'on'){
@@ -93,4 +93,4 @@ router.get('/new', (req, res) => {
 //   })
 // })
 
-module.exports = router
+// module.exports = router

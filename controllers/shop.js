@@ -67,19 +67,12 @@ shop.put('/:id', (req, res) => {
 
 //==== DELETE ==== //
 
-shop.delete('/:id', (req, res, deletedDeer) => {
-  let id= req.params.id;
-  console.log(`${deletedDeer} deleted`);
-  Deer.findByIdAndRemove(id, (error, data) => {
-    if (error) throw error;
-    res.redirect('/shop');
-  });
-});
-// shop.delete('/:id', (req, res) => {
-//   Deer.findByIdAndRemove(req.params.id, (err, deletedDeer) => {
-//     res.redirect('/shop')
-//   })
-// })
+
+shop.delete('/:id', (req, res) => {
+  Deer.findByIdAndRemove(req.params.id, (err, deletedDeer) => {
+    res.redirect('/shop')
+  })
+})
 
 //==== Create ==== //
 shop.post('/', (req, res) => {

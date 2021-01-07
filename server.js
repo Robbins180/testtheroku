@@ -67,7 +67,7 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.redirect('/fruits');
+  res.redirect('/shop');
 });
 
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));

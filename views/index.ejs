@@ -168,16 +168,13 @@
 
 
       </main>
-
+      <!-- Loop -->
       <%for(let i = 0; i < deer.length; i++) { %>
         <div class="container">
           <div class="imgs">
             <a href="/shop/<%=deer[i]._id%>">
               <img src="<%= deer[i].img %>" alt="img">
-
-
             </a>
-
           </div>
           <%= deer[i].name %>
           <!-- <%= deer[i].description %>
