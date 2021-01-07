@@ -6,6 +6,6 @@
 
   I plan to update the styling on the other pages other than the home where it is a smooth experiance. First Show, then Edit.
 
-  Discount Reindeer uses Node.js , Mongoose, Express, EJS 
+  Discount Reindeer uses Node.js , Mongoose, Express, EJS
 
   Link to working App on heroku: https://testherokuapp8818.herokuapp.com/shop
